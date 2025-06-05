@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Resume</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    a { color: #1a73e8; text-decoration: none; }
+    h1, h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+  </style>
+</head>
+<body>
+
+<h1>{{ name }}</h1>
+<p>
+  <a href="mailto:{{ email }}">{{ email }}</a> |
+  <a href="{{ linkedin }}" target="_blank">LinkedIn</a> |
+  <a href="{{ github }}" target="_blank">GitHub</a>
+</p>
+
+<h2>Summary</h2>
+<p>{{ summary }}</p>
+
+<h2>Skills</h2>
+<ul>
+{% for skill in skills %}
+  <li>{{ skill }}</li>
+{% endfor %}
+</ul>
+
+<h2>Experience</h2>
+<ul>
+{% for job in experience %}
+  <li><strong>{{ job.title }}</strong>, {{ job.company }} ({{ job.years }})<br>{{ job.details }}</li>
+{% endfor %}
+</ul>
+
+<h2>Education</h2>
+<ul>
+{% for edu in education %}
+  <li>{{ edu.degree }} - {{ edu.institution }} ({{ edu.year }})</li>
+{% endfor %}
+</ul>
+
+<h2>Certifications</h2>
+<ul>
+{% for cert in certifications %}
+  <li>{{ cert }}</li>
+{% endfor %}
+</ul>
+
+<h2>Projects</h2>
+<ul>
+{% for proj in projects %}
+  <li><strong>{{ proj.name }}</strong>: {{ proj.description }}</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
